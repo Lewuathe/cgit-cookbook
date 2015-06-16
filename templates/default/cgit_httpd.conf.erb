@@ -1,0 +1,7 @@
+ServerName <%= @ip_address %>
+Alias /cgit /var/www/cgit
+<Directory /var/www/cgit>
+    Options +ExecCGI
+    AddHandler cgi-script cgi
+    Require all granted
+</Directory>
