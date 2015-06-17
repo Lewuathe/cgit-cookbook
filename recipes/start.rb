@@ -30,8 +30,13 @@ execute "a2enconf" do
   command "a2enconf cgit"
 end
 
+execute "a2enmodule" do
+  user "root"
+  command "a2enmod cgi cgid"
+end
+
 service "apache2" do
-  action :start
+  action :restart
 end
 
 

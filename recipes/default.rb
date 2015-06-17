@@ -44,7 +44,7 @@ remote_file "/tmp/#{cgit_package_name}" do
   source cgit_package_url
 end
 
-execute "unzip cgit package" do
+execute "tar cgit package" do
   cwd "/tmp"
   command "tar Jxvf /tmp/#{cgit_package_name}"
 end
@@ -68,7 +68,7 @@ end
 
 template "/etc/cgitrc" do
   source "cgitrc.erb"
-  mode '0440'
+  mode '0666'
   owner 'root'
   group 'root'
   variables(
