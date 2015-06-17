@@ -1,23 +1,20 @@
 cgit cookbook
 ======================
-TODO: Enter the cookbook description here.
 
-e.g.
-This cookbook makes your favorite breakfast sandwich.
+This cookbook makes cgit hosting service in your server.
+* Configuration of cgit service.
+* Launch apache httpd for hosting cgit service.
 
 Requirements
 ------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
 
-e.g.
 #### packages
-- `toaster` - cgit-cookbook needs toaster to brown your bagel.
+- `git` - cgit-cookbook needs git cookbook.
+- `apt` - For ubuntu environment, cgit-cookbook needs apt.
 
 Attributes
 ----------
-TODO: List your cookbook attributes here.
 
-e.g.
 #### cgit-cookbook::default
 <table>
   <tr>
@@ -27,10 +24,40 @@ e.g.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['cgit-cookbook']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
+    <td><tt>['cgit']['private_ip']</tt></td>
+    <td>string</td>
+    <td>Used in apache configuration</td>
+    <td><tt>192.168.33.34</tt></td>
+  </tr>
+  <tr>
+  <td><tt>['cgit']['version']</tt></td>
+  <td>string</td>
+  <td>cgit version</td>
+  <td><tt>0.10.2</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['cgit']['package_name']</tt></td>
+    <td>string</td>
+    <td>Package name which is compressed in tar format.</td>
+    <td><tt>cgit-#{node['cgit']['version']}.tar.xz</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['cgit']['package_url']</tt></td>
+    <td>string</td>
+    <td>The url from which package is downloaded</td>
+    <td><tt>http://git.zx2c4.com/cgit/snapshot/#{node['cgit']['package_name']}</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['cgit']['project_list']</tt></td>
+    <td>string</td>
+    <td>The file which lists up projects hosted by cgit</td>
+    <td><tt>/home/git/projects.list</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['cgit']['scan_path']</tt></td>
+    <td>string</td>
+    <td>The directory which includes all repositories hosted by cgit</td>
+    <td><tt>/home/git/repositories</tt></td>
   </tr>
 </table>
 
@@ -39,23 +66,22 @@ Usage
 #### cgit-cookbook::default
 TODO: Write usage instructions for each cookbook.
 
-e.g.
-Just include `cgit-cookbook` in your node's `run_list`:
+Just include `cgit-cookbook` in your node's `run_list`.
+In order to launch apache httpd, you should also write `cgit::start` recipe.
 
 ```json
 {
   "name":"my_node",
   "run_list": [
-    "recipe[cgit-cookbook]"
+    "recipe[cgit]",
+    "recipe[cgit::start]"
   ]
 }
 ```
 
 Contributing
 ------------
-TODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.
 
-e.g.
 1. Fork the repository on Github
 2. Create a named feature branch (like `add_component_x`)
 3. Write your change
@@ -65,4 +91,7 @@ e.g.
 
 License and Authors
 -------------------
-Authors: TODO: List authors
+
+[MIT License](http://opensource.org/licenses/MIT)
+
+Authors: Kai Sasaki([@Lewuathe](https://github.com/Lewuathe))
