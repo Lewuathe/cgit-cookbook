@@ -16,50 +16,14 @@ Attributes
 ----------
 
 #### cgit-cookbook::default
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['cgit']['private_ip']</tt></td>
-    <td>string</td>
-    <td>Used in apache configuration</td>
-    <td><tt>192.168.33.34</tt></td>
-  </tr>
-  <tr>
-  <td><tt>['cgit']['version']</tt></td>
-  <td>string</td>
-  <td>cgit version</td>
-  <td><tt>0.10.2</tt></td>
-  </tr>
-  <tr>
-    <td><tt>['cgit']['package_name']</tt></td>
-    <td>string</td>
-    <td>Package name which is compressed in tar format.</td>
-    <td><tt>cgit-#{node['cgit']['version']}.tar.xz</tt></td>
-  </tr>
-  <tr>
-    <td><tt>['cgit']['package_url']</tt></td>
-    <td>string</td>
-    <td>The url from which package is downloaded</td>
-    <td><tt>http://git.zx2c4.com/cgit/snapshot/#{node['cgit']['package_name']}</tt></td>
-  </tr>
-  <tr>
-    <td><tt>['cgit']['project_list']</tt></td>
-    <td>string</td>
-    <td>The file which lists up projects hosted by cgit</td>
-    <td><tt>/home/git/projects.list</tt></td>
-  </tr>
-  <tr>
-    <td><tt>['cgit']['scan_path']</tt></td>
-    <td>string</td>
-    <td>The directory which includes all repositories hosted by cgit</td>
-    <td><tt>/home/git/repositories</tt></td>
-  </tr>
-</table>
+|Key|Type|Description|Default|
+|:---|:---|:---|:---|
+|['cgit']['private_ip']|string|Used in apache configuration|192.168.33.34|
+|['cgit']['version']|string|cgit version|0.10.2|
+|['cgit']['package_name']|string|Package name which is compressed in tar format.|cgit-#{node['cgit']['version']}.tar.xz|
+|['cgit']['package_url']|string|The url from which package is downloaded.|http://git.zx2c4.com/cgit/snapshot/#{node['cgit']['package_name']}|
+|['cgit']['project_list']|string|The file which lists up projects hosted by cgit.|/home/git/projects.list|
+|['cgit']['scan_path']|string|The directory which includes all repositories hosted by cgit.|/home/git/repositories|
 
 Usage
 -----

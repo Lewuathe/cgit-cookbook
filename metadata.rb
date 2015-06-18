@@ -6,7 +6,7 @@ description      'Install and launching cgit server'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 source_url       'https://github.com/Lewuathe/cgit-cookbook'
 issues_url       'https://github.com/Lewuathe/cgit-cookbook/issues'
-version          '0.0.1'
+version          '0.0.2'
 depends          'apache2'
 depends          'apt'
 depends          'git'
