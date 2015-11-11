@@ -6,8 +6,6 @@
 #
 # MIT License
 
-
-
 include_recipe 'apache2'
 include_recipe 'git'
 
@@ -76,10 +74,3 @@ template "/etc/cgitrc" do
     'scan_path' => node['cgit']['scan_path']
   )
 end
-
-
-
-
-
-
-

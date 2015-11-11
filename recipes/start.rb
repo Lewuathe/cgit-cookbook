@@ -6,8 +6,6 @@
 #
 # MIT License
 
-
-
 template "/etc/apache2/conf-available/cgit.conf" do
   source "cgit_httpd.conf.erb"
   mode '0440'
@@ -38,5 +36,3 @@ end
 service "apache2" do
   action :restart
 end
-
-
